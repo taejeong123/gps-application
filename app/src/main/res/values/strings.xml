@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">sdktest</string>
+    <string name="currentAddrStr">서울특별시 강남구 봉은사로 531</string>
+    <string name="sunRiseSetStr">주간/야간</string>
+    <string name="kphStr">0kph</string>
+    <string name="speedStr">고속/저속</string>
+    <string name="elevationStr">고도: 0m</string>
+    <string name="temperatureStr">22°</string>
+    <string name="weatherStr">맑음</string>
+</resources>
