@@ -185,7 +185,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
                     // day mode : 주간
                     nightModeEnabled = false;
                     timeStr = "주간";
-                } else if (riseCompare == setCompare) {
+                } else {
                     // night mode : 야간
                     nightModeEnabled = true;
                     timeStr = "야간";

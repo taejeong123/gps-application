@@ -16,7 +16,7 @@ import java.util.Date;
 public class Utils {
 
     public static void displayMessage(Context context, String msg) {
-        Toast.makeText(context, msg, Toast.LENGTH_SHORT);
+        Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
     }
 
     public static JSONObject dataToJson(LocationVO locationVO) {
