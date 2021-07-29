@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     private String beforeDateTime = new SimpleDateFormat("HH:mm:ss").format(new Date());
     private int beforeElevation = 0;
 
-    private int minTimeMs = 5000;
+    private int minTimeMs = 3000;
 
     private boolean nightModeEnabled = false;
 
@@ -270,7 +270,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
             kph = (int) (km / Double.parseDouble(moveTimeHour));
 
             if (kph > 60) { speedStr = "고속"; }
-            else if (kph <= 60) { speedStr = "저속"; }
+            else { speedStr = "저속"; }
 
             beforeDateTime = currentDateTimeSplit;
         }

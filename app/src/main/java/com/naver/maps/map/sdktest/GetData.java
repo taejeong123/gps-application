@@ -24,7 +24,8 @@ public class GetData {
     private static String NAVER_CLIENT_ID = "j4db6gdfgj";
     private static String NAVER_CLIENT_SECRET = "DsnDx3loKKIaStGY33VWsbt0WuKnhTRbhpuQgr2R";
     private static String NAVER_REVERSE_GEOCODING_REQUEST_URL = "https://naveropenapi.apigw.ntruss.com/map-reversegeocode/v2/gc?";
-    private static String NAVER_DIRECTIONS_15_REQUEST_URL = "https://naveropenapi.apigw.ntruss.com/map-direction-15/v1/driving?";
+//    private static String NAVER_DIRECTIONS_15_REQUEST_URL = "https://naveropenapi.apigw.ntruss.com/map-direction-15/v1/driving?"; // driver 15 api
+    private static String NAVER_DIRECTIONS_5_REQUEST_URL = "https://naveropenapi.apigw.ntruss.com/map-direction/v1/driving?"; // driver 5 api
 
     private static String NAVER_WEATHER_REQUEST_URL = "https://weather.naver.com/today/";
 
@@ -219,7 +220,7 @@ public class GetData {
             String result = null;
 
             try {
-                String apiURL = NAVER_DIRECTIONS_15_REQUEST_URL +
+                String apiURL = NAVER_DIRECTIONS_5_REQUEST_URL +
                         "start=" + beforeLocation + "&" +
                         "goal=" + currentLocation + "&" +
                         "option=trafast";
