@@ -13,117 +13,124 @@
         android:layout_height="match_parent"
         android:name="com.naver.maps.map.MapFragment"/>
 
-    <RelativeLayout
+    <androidx.cardview.widget.CardView
         android:layout_alignParentBottom="true"
         android:layout_margin="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="20dp"
-        android:background="@drawable/layout_radius"
+        app:contentPadding="20dp"
+        app:cardCornerRadius="20dp"
+        android:background="@color/white"
         android:elevation="200dp">
 
-        <TextView
-            android:layout_marginBottom="10dp"
-            android:id="@+id/currentAddr"
-            android:text="@string/currentAddrStr"
-            android:textSize="15dp"
-            android:textColor="@color/black"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-        <LinearLayout
-            android:layout_below="@+id/currentAddr"
-            android:orientation="horizontal"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+            <TextView
+                android:layout_marginBottom="10dp"
+                android:id="@+id/currentAddr"
+                android:text="@string/currentAddrStr"
+                android:textSize="15dp"
+                android:textColor="@color/black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
             <LinearLayout
-                android:layout_weight="100"
-                android:id="@+id/leftLayout"
-                android:orientation="vertical"
-                android:layout_width="0dp"
+                android:layout_below="@+id/currentAddr"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/sunRiseSet"
-                    android:text="@string/sunRiseSetStr"
-                    android:textColor="@color/black"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
                 <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="wrap_content"
+                    android:layout_weight="100"
+                    android:id="@+id/leftLayout"
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content">
 
                     <TextView
-                        android:id="@+id/kphText"
-                        android:text="@string/kphStr"
+                        android:id="@+id/sunRiseSet"
+                        android:text="@string/sunRiseSetStr"
+                        android:textColor="@color/black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/kphText"
+                            android:text="@string/kphStr"
+                            android:textSize="30dp"
+                            android:textColor="@color/black"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                        <TextView
+                            android:id="@+id/speedText"
+                            android:text="@string/speedStr"
+                            android:textColor="@color/black"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/elevationText"
+                        android:text="@string/elevationStr"
+                        android:textColor="@color/black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:background="@color/gray"/>
+
+                <RelativeLayout
+                    android:layout_weight="100"
+                    android:id="@+id/rightLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/weatherImage"
+                        android:layout_centerVertical="true"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"/>
+
+                    <TextView
+                        android:layout_toEndOf="@+id/weatherImage"
+                        android:id="@+id/temperatureText"
+                        android:text="@string/temperatureStr"
                         android:textSize="30dp"
                         android:textColor="@color/black"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
 
                     <TextView
-                        android:id="@+id/speedText"
-                        android:text="@string/speedStr"
+                        android:layout_alignStart="@+id/temperatureText"
+                        android:layout_below="@+id/temperatureText"
+                        android:id="@+id/weatherText"
+                        android:text="@string/weatherStr"
                         android:textColor="@color/black"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"/>
 
-                </LinearLayout>
-
-                <TextView
-                    android:id="@+id/elevationText"
-                    android:text="@string/elevationStr"
-                    android:textColor="@color/black"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                </RelativeLayout>
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_weight="1"
-                android:layout_marginTop="10dp"
-                android:layout_width="0dp"
-                android:layout_height="50dp"
-                android:background="@color/gray"/>
+        </RelativeLayout>
 
-            <RelativeLayout
-                android:layout_weight="100"
-                android:id="@+id/rightLayout"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:gravity="center">
-
-                <ImageView
-                    android:id="@+id/weatherImage"
-                    android:layout_centerVertical="true"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"/>
-
-                <TextView
-                    android:layout_toEndOf="@+id/weatherImage"
-                    android:id="@+id/temperatureText"
-                    android:text="@string/temperatureStr"
-                    android:textSize="30dp"
-                    android:textColor="@color/black"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-                <TextView
-                    android:layout_alignStart="@+id/temperatureText"
-                    android:layout_below="@+id/temperatureText"
-                    android:id="@+id/weatherText"
-                    android:text="@string/weatherStr"
-                    android:textColor="@color/black"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-            </RelativeLayout>
-
-        </LinearLayout>
-
-    </RelativeLayout>
+    </androidx.cardview.widget.CardView>
 
 </RelativeLayout>

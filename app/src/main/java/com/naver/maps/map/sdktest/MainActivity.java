@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.core.content.PermissionChecker;
 import androidx.fragment.app.FragmentManager;
 
@@ -123,6 +124,8 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
             && locationManager != null) {
             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, minTimeMs, 10, this);
             locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, minTimeMs, 10, this);
+        } else {
+            requestPermissions(PERMISSIONS, PERMISSION_REQUEST_CODE);
         }
     }
 
@@ -226,6 +229,12 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         });
         map.setNightModeEnabled(nightModeEnabled);
         map.moveCamera(CameraUpdate.scrollTo(coord).animate(CameraAnimation.Easing));
+
+        Log.e("!@!@", "timestr " + timeStr);
+        Log.e("!@!@", "weather " + weather);
+        Log.e("!@!@", "slope " + slope);
+        Log.e("!@!@", "address " + address);
+        Log.e("!@!@", "speed " + speed);
 
         if (timeStr.equals("") || weather.equals("") || slope.equals("") || address.equals("") || speed.equals("")) {
             return;

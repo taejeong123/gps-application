@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">sdktest</string>
+    <string name="app_name">mobis_gps</string>
     <string name="currentAddrStr">서울특별시 강남구 봉은사로 531</string>
     <string name="sunRiseSetStr">주간/야간</string>
     <string name="kphStr">0kph</string>

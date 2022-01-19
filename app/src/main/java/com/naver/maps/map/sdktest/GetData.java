@@ -1,5 +1,6 @@
 package com.naver.maps.map.sdktest;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
@@ -21,8 +22,8 @@ import javax.net.ssl.HttpsURLConnection;
 
 public class GetData {
 
-    private static String NAVER_CLIENT_ID = "j4db6gdfgj";
-    private static String NAVER_CLIENT_SECRET = "DsnDx3loKKIaStGY33VWsbt0WuKnhTRbhpuQgr2R";
+    private static String NAVER_CLIENT_ID = "2w5zufk5ti";
+    private static String NAVER_CLIENT_SECRET = "WUQmrz2ocptmXVSkVYv0iPmScyTZGyUS1h5QUpE0";
     private static String NAVER_REVERSE_GEOCODING_REQUEST_URL = "https://naveropenapi.apigw.ntruss.com/map-reversegeocode/v2/gc?";
 //    private static String NAVER_DIRECTIONS_15_REQUEST_URL = "https://naveropenapi.apigw.ntruss.com/map-direction-15/v1/driving?"; // driver 15 api
     private static String NAVER_DIRECTIONS_5_REQUEST_URL = "https://naveropenapi.apigw.ntruss.com/map-direction/v1/driving?"; // driver 5 api
@@ -143,16 +144,17 @@ public class GetData {
     // get weather info & sun set/rise info from naver weather homepage
     public static class GetLocationWeather extends AsyncTask<Void, Void, String> {
 
-        String weatherSelector = "#content > div > div.card.card_today > div.today_weather > div.weather_area > p > span.weather.before_slash";
-        String svgSelector = "#content > div > div.card.card_today > div.today_weather > i";
-        String temperatureSelector = "#content > div > div.card.card_today > div.today_weather > div.weather_area > strong.current";
-        String sunRiseSelectorAtDay = "#sunRiseSet > div > div > div > div.sun_info > dl > dd:nth-child(2)";
-        String sunSetSelectorAtDay = "#sunRiseSet > div > div > div > div.sun_info > dl > dd:nth-child(4)";
-        String sunRiseSelectorAtNight = "#sunRiseSet > div > div > table > tbody > tr:nth-child(1) > td:nth-child(2) > .sun_time";
-        String sunSetSelectorAtNight = "#sunRiseSet > div > div > table > tbody > tr:nth-child(1) > td:nth-child(3) > .sun_time";
+        String weatherSelector = "#content div div.section_center div.card.card_today div.today_weather div.weather_area div.weather_now p span.weather";
+        String svgSelector = "#content div div.card.card_today div.today_weather i";
+        String temperatureSelector = "#content div div.card.card_today div.today_weather div.weather_area strong.current";
+        String sunRiseSelectorAtDay = "#sunRiseSet div div div div.sun_info dl dd:nth-child(2)";
+        String sunSetSelectorAtDay = "#sunRiseSet div div div div.sun_info dl dd:nth-child(4)";
+        String sunRiseSelectorAtNight = "#sunRiseSet div div table tbody tr:nth-child(1) td:nth-child(2) .sun_time";
+        String sunSetSelectorAtNight = "#sunRiseSet div div table tbody tr:nth-child(1) td:nth-child(3) .sun_time";
 
         String svgUrl = "https://ssl.pstatic.net/static/weather/image/icon_weather/";
 
+        @SuppressLint("StaticFieldLeak")
         Context context;
         String locationCode;
         public GetLocationWeather(Context context, String locationCode) {
@@ -191,7 +193,6 @@ public class GetData {
                 String sunSetTime = sunSetEl.text();
 
                 returnStr = weather + "`" + temperature + "`" + sunRiseTime + "`" + sunSetTime + "`" + svgUrl;
-
             } catch (IOException e) {
                 e.printStackTrace();
                 returnStr = "`날씨정보 없음";
